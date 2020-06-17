@@ -1,0 +1,11 @@
+$mobile: 320px;
+$tablet: 768px;
+$desktop: 1280px;
+$max-width: 1366px;
+
+$guide-config: (
+    // columns, gutter, page gutter
+    mobile: 10 0px 0px,
+    tablet: 24 0px 0px,
+    desktop: 20 0px 0px,
+);

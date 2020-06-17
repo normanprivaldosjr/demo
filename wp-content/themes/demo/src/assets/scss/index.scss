@@ -1,0 +1,25 @@
+/*
+Theme Name: Demo
+Text Domain: demo.test
+Version: 1.0
+Requires at least: 4.7
+Requires PHP: 5.2.4
+Description: Demo site
+Author: Norman Privaldos, Jr
+*/
+
+@import "global/color";
+@import "global/variables";
+@import "global/functions";
+@import "global/mixins";
+@import "global/typography";
+@import "global/grid";
+@import "global/page";
+@import "global/helpers";
+
+@import "global/wp-overrides";
+
+@import "../../blocks/hero-blog/hero-blog";
+@import "../../blocks/heading/heading";
+@import "../../blocks/paragraph/paragraph";
+@import "../../blocks/image/image";

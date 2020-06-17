@@ -1,0 +1,50 @@
+// This will render a repeating-linear-gradient function
+@function bg-guide($breakpoint) {
+    $grid-color: hsla(286, 51%, 44%, 0.25);
+    $column-width: calc((100% / #{nth(map-get($guide-config, $breakpoint), 1)}) - #{nth(map-get($guide-config, $breakpoint), 2)});
+    $repeating-width: calc(100% / #{nth(map-get($guide-config, $breakpoint), 1)});
+    $background-width: calc(100% + #{nth(map-get($guide-config, $breakpoint), 2)});
+
+    @return repeating-linear-gradient(
+        to right,
+        #{$grid-color},
+        #{hsla(286, 88%, 66%, 0.25)} #{$column-width},
+        transparent #{$column-width},
+        transparent #{$repeating-width}
+    );
+}
+
+@mixin gridOverlay($config, $max-width) {
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 50%;
+        height: 100vh;
+        margin-left: auto;
+        margin-right: auto;
+        transform: translateX(-50%);
+        background-position: 0;
+        z-index: 9999;
+        pointer-events: none;
+
+        @each $key, $value in $config {
+            $background-width: calc(100% + #{nth(map-get($config, $key), 2)});
+
+            @if $key == 'mobile' {
+                width: calc(100% - (2 * #{nth(map-get($config, $key), 3)}));
+                max-width: calc(#{$max-width} - (2 * #{nth(map-get($config, $key), 3)}));
+                background-image: bg-guide($key);
+                background-size: $background-width 100%;
+            } @else {
+                // Change the mixin name if necessary
+                @include breakpoint($key) {
+                    width: calc(100% - (2 * #{nth(map-get($config, $key), 3)}));
+                    max-width: calc(#{$max-width} - (2 * #{nth(map-get($config, $key), 3)}));
+                    background-image: bg-guide($key);
+                    background-size: $background-width 100%;
+                }
+            }
+        }
+    }
+}

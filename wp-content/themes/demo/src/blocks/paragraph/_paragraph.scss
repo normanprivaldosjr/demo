@@ -1,0 +1,33 @@
+.paragraph-block {
+  font-family: 'Playfair Display', serif;
+  color: $mine-shaft;
+
+  .component-wrapper {
+    p {
+      @include grid-span(3, 7);
+      font-size: 16px;
+      line-height: 24px;
+
+      @include tablet {
+        @include grid-span(4, 12);
+        font-size: 18px;
+        line-height: 27px;
+      }
+
+      @include desktop {
+        @include grid-span(4, 10);
+      }
+
+      a {
+        text-decoration: underline;
+        font-weight: bold;
+        color: $link;
+
+        &:hover {
+          text-decoration: none;
+          color: $link-hover;
+        }
+      }
+    }
+  }
+}

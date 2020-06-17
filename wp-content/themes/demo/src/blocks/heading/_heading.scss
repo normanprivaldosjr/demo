@@ -1,0 +1,15 @@
+.heading-block {
+  .component-wrapper {
+    & > * {
+      @include grid-span(2, 8);
+
+      @include tablet {
+        @include grid-span(3, 13);
+      }
+
+      @include desktop {
+        @include grid-span(3, 11);
+      }
+    }
+  }
+}

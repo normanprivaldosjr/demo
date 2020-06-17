@@ -1,0 +1,64 @@
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: $large-desktop) {
+    @content;
+  }
+}
+
+@mixin breakpoint($key) {
+  @if $key == 'mobile' {
+    @media (min-width: $mobile) {
+      @content;
+    }
+  }
+
+  @else if $key == 'tablet' {
+    @media (min-width: $tablet) {
+      @content;
+    }
+  }  
+
+  @else if $key == 'desktop' {
+    @media (min-width: $desktop) {
+      @content;
+    }
+  }
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: '';
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  > * {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    margin: auto;
+    overflow: hidden;
+  }
+}
+
+@mixin col-count($count) {
+  grid-template-columns: repeat($count, 1fr);
+}
+
+@mixin grid-span($start, $span) {
+  grid-column-start: $start;
+  grid-column-end: $start + $span;
+}
