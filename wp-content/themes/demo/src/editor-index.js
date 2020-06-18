@@ -4,6 +4,7 @@ import paragraphBlockEditor from './blocks/paragraph/paragraph-editor';
 import imageBlockEditor from './blocks/image/image-editor';
 import videoBlockEditor from './blocks/video/video-editor';
 import listBlockEditor from './blocks/list/list-editor';
+import pullQuoteEditor from './blocks/pullquote/pullquote-editor';
 
 const { registerBlockType } = wp.blocks;
 
@@ -13,3 +14,4 @@ registerBlockType('demo/paragraph', paragraphBlockEditor);
 registerBlockType('demo/image', imageBlockEditor);
 registerBlockType('demo/video', videoBlockEditor);
 registerBlockType('demo/list', listBlockEditor);
+registerBlockType('demo/pullquote', pullQuoteEditor);

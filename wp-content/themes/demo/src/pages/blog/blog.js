@@ -9,6 +9,7 @@ import Paragraph from '../../blocks/paragraph/paragraph';
 import Image from '../../blocks/image/image';
 import Video from '../../blocks/video/video';
 import List from '../../blocks/list/list';
+import PullQuote from '../../blocks/pullquote/pullquote';
 
 const MAIN_QUERY = gql`
   query blog($uri: String, $blogId: Int) {
@@ -62,7 +63,16 @@ const MAIN_QUERY = gql`
         ... on DemoListBlock {
           parentId
           attributes {
+            className
             type
+            content
+          }
+        }
+        ... on DemoPullquoteBlock {
+          parentId
+          attributes {
+            className
+            author
             content
           }
         }
@@ -102,6 +112,9 @@ const renderContent = data => {
       }
       case 'DemoListBlock': {
         return <List key={index} attributes={attributes} />
+      }
+      case 'DemoPullquoteBlock': {
+        return <PullQuote key={index} attributes={attributes} />
       }
     }
   })
