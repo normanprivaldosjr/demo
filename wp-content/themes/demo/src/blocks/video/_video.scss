@@ -1,0 +1,73 @@
+.video-embed {
+  .component-wrapper {
+    @include col-count(20);
+
+    @include tablet {
+      @include col-count(48);
+    }
+
+    @include desktop {
+      @include col-count(40);
+    }
+
+    & > * {
+      @include grid-span(4, 15);
+
+      @include tablet {
+        @include grid-span(6, 25);
+      }
+
+      @include desktop {
+        @include grid-span(6, 21);
+      }
+    }
+  }
+
+  .video {
+    display: flex;
+
+    video {
+      width: 100%;
+    }
+  }
+
+  .caption {
+    padding: 10px;
+    font-family: 'Playfair Display', serif;
+    font-size: 12px;
+    line-height: 18px;
+    color: $boulder;
+    border-left: 1px solid $boulder;
+
+    @include tablet {
+      padding: 15px;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+  
+  &.block-editor {
+    .video {
+      &.is-empty {
+        @include aspect-ratio(16, 9);
+        background-color: $athens-gray;
+      }
+    }
+
+    .placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+
+      svg {
+        width: 100px;
+        opacity: 0.7;
+
+        path {
+          fill: $mine-shaft;
+        }
+      }
+    }
+  }
+}

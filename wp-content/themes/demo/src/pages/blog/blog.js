@@ -7,6 +7,7 @@ import HeroBlog from '../../blocks/hero-blog/hero-blog';
 import Heading from '../../blocks/heading/heading';
 import Paragraph from '../../blocks/paragraph/paragraph';
 import Image from '../../blocks/image/image';
+import Video from '../../blocks/video/video';
 
 const MAIN_QUERY = gql`
   query blog($uri: String, $blogId: Int) {
@@ -50,6 +51,13 @@ const MAIN_QUERY = gql`
             image
           }
         }
+        ... on DemoVideoBlock {
+          parentId
+          attributes {
+            className
+            video
+          }
+        }
       }
     }
   }
@@ -78,6 +86,11 @@ const renderContent = data => {
         const newAttributes = {...attributes};
         newAttributes.image = JSON.parse(newAttributes.image);
         return <Image key={index} attributes={newAttributes} />
+      }
+      case 'DemoVideoBlock': {
+        const newAttributes = {...attributes};
+        newAttributes.video = JSON.parse(newAttributes.video);
+        return <Video key={index} attributes={newAttributes} />
       }
     }
   })

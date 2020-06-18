@@ -29,10 +29,6 @@ const SideControls = props => (
             props.setAttributes({ image: _image });
           }}
           render={({ open }) => {
-            if (!props.attributes.image.id) {
-              open();
-            }
-
             return (
               <>
                 {
