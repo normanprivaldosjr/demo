@@ -8,6 +8,7 @@ import Heading from '../../blocks/heading/heading';
 import Paragraph from '../../blocks/paragraph/paragraph';
 import Image from '../../blocks/image/image';
 import Video from '../../blocks/video/video';
+import List from '../../blocks/list/list';
 
 const MAIN_QUERY = gql`
   query blog($uri: String, $blogId: Int) {
@@ -58,6 +59,13 @@ const MAIN_QUERY = gql`
             video
           }
         }
+        ... on DemoListBlock {
+          parentId
+          attributes {
+            type
+            content
+          }
+        }
       }
     }
   }
@@ -91,6 +99,9 @@ const renderContent = data => {
         const newAttributes = {...attributes};
         newAttributes.video = JSON.parse(newAttributes.video);
         return <Video key={index} attributes={newAttributes} />
+      }
+      case 'DemoListBlock': {
+        return <List key={index} attributes={attributes} />
       }
     }
   })
