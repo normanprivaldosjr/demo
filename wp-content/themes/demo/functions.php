@@ -189,6 +189,7 @@ function allowed_block_types( $allowed_block_types, $post ) {
       'demo/image',
       'demo/video',
       'demo/list',
+      'demo/pullquote',
     );
   }
 }
@@ -241,4 +242,17 @@ function remove_guten_wrapper_styles( $settings ) {
 
   return $settings;
 }
+
 add_filter( 'block_editor_settings' , 'remove_guten_wrapper_styles' );
+
+/**
+ * 
+ * Permalinks setup
+ * 
+ */
+function set_permalinks() {
+  global $wp_rewrite;
+  $wp_rewrite->set_permalink_structure('/%postname%/');
+}
+
+add_action( 'init', 'set_permalinks' );

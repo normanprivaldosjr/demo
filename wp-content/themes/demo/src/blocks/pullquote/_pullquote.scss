@@ -1,0 +1,89 @@
+.pull-quote {
+  padding-top: 50px;
+  padding-bottom: 30px;
+
+  .component-wrapper {
+    @include col-count(20);
+
+    @include tablet {
+      @include col-count(48);
+    }
+
+    @include desktop {
+      @include col-count(40);
+    }
+
+    & > * {
+      @include grid-span(4, 15);
+
+      @include tablet {
+        @include grid-span(6, 25);
+      }
+
+      @include desktop {
+        @include grid-span(6, 21);
+      }
+    }
+  }
+
+  .main {
+    position: relative;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    line-height: 30px;
+
+    @include tablet {
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    svg {
+      position: absolute;
+      width: 100px;
+      top: -40px;
+      left: -16px;
+
+      path {
+        fill: $silver;
+        opacity: 0.5;
+      }
+    }
+
+    p {
+      position: relative;
+      font-size: 18px;
+      line-height: 27px;
+      color: $mine-shaft;
+
+      @include tablet {
+        font-size: 22px;
+        line-height: 33px;
+      }
+    }
+  }
+
+  .author {
+    display: flex;
+    align-items: center;
+
+    .line {
+      width: 15px;
+      height: 2px;
+      margin-right: 10px;
+      background-color: $boulder;
+    }
+
+    .text {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      line-height: 14px;
+      color: $boulder;
+
+      @include tablet {
+        font-size: 16px;
+        line-height: 16px;
+      }
+    }
+  }
+}
