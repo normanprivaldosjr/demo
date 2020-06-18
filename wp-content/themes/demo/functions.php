@@ -187,6 +187,7 @@ function allowed_block_types( $allowed_block_types, $post ) {
       'demo/heading',
       'demo/paragraph',
       'demo/image',
+      'demo/video',
     );
   }
 }

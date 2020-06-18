@@ -6,10 +6,10 @@
   "scripts": {
     "start": "parcel src/index.js",
     "watch": "parcel watch src/index.js",
-    "build": "parcel build src/index.js --no-content-hash",
+    "build": "parcel build src/index.js --no-content-hash && parcel build src/editor-index.js --no-content-hash",
     "start-editor": "parcel src/editor-index.js",
     "start-editor-watch": "parcel watch src/editor-index.js",
-    "start-editor-build": "parcel build src/editor-index.js"
+    "start-editor-build": "parcel build src/editor-index.js --no-content-hash"
   },
   "keywords": [],
   "author": "",
