@@ -19,7 +19,7 @@
     "@mdi/react": "^1.4.0",
     "@wordpress/editor": "^9.18.0",
     "apollo-boost": "^0.4.9",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "graphql": "^15.1.0",
     "parcel-bundler": "^1.12.4",
     "react": "^16.13.1",
